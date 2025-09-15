@@ -1,0 +1,3 @@
+Fazer a tela inicial
+
+Fazer com que no 'esqueci senha/trazer dados' só apareça da pessoa que esta tentando - FEITO
