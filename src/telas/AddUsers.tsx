@@ -33,6 +33,16 @@ export default function AddUsers() {
       return;
     }
 
+    if (!email.includes('@') || !email.endsWith('.com')) {
+        Alert.alert('Erro', 'Digite um e-mail válido (deve conter "@" e terminar com ".com")');
+        return;
+    }
+
+    if (senha.length < 6) {
+          Alert.alert('Erro', 'A senha deve ter pelo menos 6 caracteres');
+          return;
+        }
+
     if(senha != confirmSenha){
       Alert.alert('Erro', 'As senhas não coincidem!');
       return;
@@ -65,10 +75,7 @@ export default function AddUsers() {
       await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(usuarios));
       
        Alert.alert('Sucesso', 'Usuário cadastrado com sucesso!', [
-        { 
-          text: 'OK', 
-          onPress: () => navigation.navigate('Users')
-        }
+        { text: 'OK', onPress: () => navigation.navigate('Users') }
       ]);
 
     } catch (error) {
@@ -78,9 +85,11 @@ export default function AddUsers() {
   };
 
   return (
-    <ScrollView style={styles.container}>
-      <Text style={styles.titulo}>Criar Usuário</Text>
+    <View style={styles.container}>
+      <Text style={styles.title}>FIAP Invest+</Text>
+      <Text style={styles.subtitle}>Criar Usuário</Text>
       
+      <View style={styles.formContainer}>
       <TextInput
         style={styles.input}
         placeholder="Nome"
@@ -129,55 +138,59 @@ export default function AddUsers() {
         <Text style={styles.textoBotao}>Criar conta</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity 
-        style={styles.botaoSecundario} 
-        onPress={() => navigation.navigate('Users')}
-      >
+      <TouchableOpacity style={styles.botaoSecundario} onPress={() => navigation.navigate('Users')}>
         <Text style={styles.textoBotaoSecundario}>Já tenho uma conta</Text>
       </TouchableOpacity>
-
-    </ScrollView>
+    </View>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#B0C4DE',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#1a1a2e',
     padding: 20,
   },
-  titulo: {
-    fontSize: 24,
+  title: {
+    fontSize: 32,
     fontWeight: 'bold',
-    color: '#0d47a1',
-    textAlign: 'center',
+    color: '#fff',
+    marginBottom: 10,
+  },
+  subtitle: {
+    fontSize: 16,
+    color: 'rgba(255, 255, 255, 0.7)',
     marginBottom: 30,
-    marginTop: 20,
+  },
+  formContainer: {
+    width: '100%',
+    maxWidth: 400,
   },
   input: {
     backgroundColor: 'white',
-    borderRadius: 8,
+    borderRadius: 12,
     padding: 15,
     marginBottom: 15,
     fontSize: 16,
-    borderWidth: 1,
-    borderColor: '#ccc',
   },
   botao: {
-    backgroundColor: '#0d47a1',
-    borderRadius: 8,
+    backgroundColor: '#3498db',
+    borderRadius: 12,
     padding: 15,
     alignItems: 'center',
     marginTop: 20,
   },
   botaoSecundario: {
     backgroundColor: 'transparent',
-    borderRadius: 8,
+    borderRadius: 12,
     padding: 15,
     alignItems: 'center',
     marginTop: 10,
     borderWidth: 1,
-    borderColor: '#0d47a1',
+    borderColor: '#3498db',
   },
   textoBotao: {
     color: 'white',
@@ -185,7 +198,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   textoBotaoSecundario: {
-    color: '#0d47a1',
+    color: '#3498db',
     fontSize: 16,
     fontWeight: 'bold',
   },

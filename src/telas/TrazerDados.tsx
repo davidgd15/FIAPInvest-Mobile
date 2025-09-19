@@ -93,12 +93,14 @@ export default function TrazerDados() {
   return (
     <ScrollView contentContainerStyle={styles.scrollContainer}>
       <View style={styles.container}>
-        <Text style={styles.titulo}>Alterar Senha</Text>
+        <Text style={styles.title}>Alterar Senha</Text>
+        <Text style={styles.subtitle}>Crie uma nova senha</Text>
         
+        <View style={styles.formContainer}>
         <View style={styles.card}>
           <View style={styles.infoUsuario}>
-            <Text style={styles.nome}>Olá {usuario.nome}!</Text>
-            <Text style={styles.textSenha}>Crie uma nova senha</Text>
+            <Text style={styles.nome}>Olá, {usuario.nome}!</Text>
+            
             
             <TextInput
               style={styles.input}
@@ -123,6 +125,7 @@ export default function TrazerDados() {
           <Text style={styles.textoBotao}>Confirmar</Text>
         </TouchableOpacity>
       </View>
+      </View>
     </ScrollView>
   );
 }
@@ -130,32 +133,26 @@ export default function TrazerDados() {
 const styles = StyleSheet.create({
   scrollContainer: {
     flexGrow: 1,
-    backgroundColor: '#B0C4DE',
+    backgroundColor:'#1a1a2e',
   },
-  container: {
+ container: {
     flex: 1,
-    padding: 20,
     justifyContent: 'center',
-    minHeight: '100%', // Garante que ocupe toda a altura
+    backgroundColor: '#1a1a2e',
+    alignItems: 'center',
+    padding: 20,
   },
-  titulo: {
-    fontSize: 28,
+  title: {
+    fontSize: 32,
     fontWeight: 'bold',
-    color: '#0d47a1',
-    textAlign: 'center',
-    marginBottom: 30,
-    marginTop: 20,
+    color: '#fff',
+    marginBottom: 10,
   },
   card: {
-    backgroundColor: 'white',
-    borderRadius: 15,
+    backgroundColor: '#fff',
+    borderRadius: 12,
     padding: 25,
     marginBottom: 25,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.1,
-    shadowRadius: 6,
-    elevation: 5,
   },
   infoUsuario: {
     flex: 1,
@@ -164,29 +161,32 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 22,
     fontWeight: 'bold',
-    color: '#0d47a1',
+    color: '#3498db',
     marginBottom: 15,
   },
-  input: {
-    backgroundColor: '#f8f9fa',
-    borderRadius: 10,
-    padding: 16,
-    marginBottom: 20,
-    fontSize: 16,
-    borderWidth: 1,
-    borderColor: '#ddd',
-    color: '#333', // Cor do texto digitado
+  formContainer: {
+    width: '100%',
+    maxWidth: 400,
   },
-  textSenha: {
-    marginBottom: 25,
+  input: {
+    backgroundColor: '#fff',
+    borderRadius: 12,
+    padding: 15,
+    marginBottom: 15,
+    fontSize: 16,
+    borderColor: '#999',
+    borderWidth: 1,
+  },
+  subtitle: {
+    marginBottom: 20,
     textAlign: 'center',
-    fontSize: 18,
-    color: '#666',
+    fontSize: 16,
+    color: 'rgba(255, 255, 255, 0.7)',
     fontWeight: '500',
   },
   botao: {
-    backgroundColor: '#0d47a1',
-    borderRadius: 10,
+    backgroundColor: '#3498db',
+    borderRadius: 12,
     padding: 18,
     alignItems: 'center',
     marginTop: 20,

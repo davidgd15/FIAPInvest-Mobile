@@ -1,4 +1,3 @@
-// EsqueciSenha.tsx
 import React, { useState } from 'react';
 import { View, TextInput, StyleSheet, Text, TouchableOpacity, Alert } from 'react-native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
@@ -7,16 +6,6 @@ import { RootStackParamList } from '../AppNavigator';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
-
-// REMOVA esta duplicação - já está definido no AppNavigator
-// export type RootStackParamList = {
-//   EsqueciSenha: undefined;
-//   TrazerDados: { 
-//     email: string;
-//     usuario: Usuario;
-//   };
-//   AddUsers: undefined;
-// };
 
 type Usuario = {
   id: string;
@@ -47,7 +36,7 @@ export default function EsqueciSenha() {
         
         if (usuarioEncontrado) {
           navigation.navigate('TrazerDados', { 
-            email: email // Apenas o email é necessário
+            email: email
           });
         } else {
           Alert.alert('Erro', 'E-mail não encontrado');
@@ -65,8 +54,10 @@ export default function EsqueciSenha() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.titulo}>Esqueceu sua senha?</Text>
+      <Text style={styles.title}>Esqueceu sua senha?</Text>
+      <Text style={styles.subtitle}>Altere sua senha</Text>
 
+    <View style={styles.formContainer}>
       <TextInput
         style={styles.input}
         placeholder="E-mail"
@@ -80,6 +71,7 @@ export default function EsqueciSenha() {
       <TouchableOpacity style={styles.botao} onPress={handleVerificar}>
         <Text style={styles.textoBotao}>Verificar</Text>
       </TouchableOpacity>
+      </View>
     </View>
   );
 }
@@ -87,29 +79,36 @@ export default function EsqueciSenha() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    justifyContent: 'center',
+    backgroundColor: '#1a1a2e',
+    alignItems: 'center',
     padding: 20,
-    backgroundColor:'#B0C4DE',
   },
-  titulo: {
-    fontSize: 24,
+title: {
+    fontSize: 32,
     fontWeight: 'bold',
-    color: '#0d47a1',
-    textAlign: 'center',
+    color: '#fff',
+    marginBottom: 10,
+  },
+  subtitle: {
+    fontSize: 16,
+    color: 'rgba(255, 255, 255, 0.7)',
     marginBottom: 30,
-    marginTop: 20,
+  },
+  formContainer: {
+    width: '100%',
+    maxWidth: 400,
   },
   input: {
-    backgroundColor: 'white',
-    borderRadius: 8,
+    backgroundColor: '#fff',
+    borderRadius: 12,
     padding: 15,
     marginBottom: 15,
     fontSize: 16,
-    borderWidth: 1,
-    borderColor: '#ccc',
   },
   botao: {
-    backgroundColor: '#0d47a1',
-    borderRadius: 8,
+    backgroundColor: '#3498db',
+    borderRadius: 12,
     padding: 15,
     alignItems: 'center',
     marginTop: 20,

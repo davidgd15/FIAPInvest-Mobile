@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, Alert, StyleSheet, Image, ScrollView } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Alert, StyleSheet } from 'react-native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useNavigation } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -39,8 +39,8 @@ export default function Users() {
 
       if (usuario) {
         Alert.alert('Sucesso', 'Login realizado com sucesso!', [
-          { text: 'OK', onPress: () => navigation.navigate('Menu') }
-        ]);
+        { text: 'OK', onPress: () => navigation.navigate('MainTabs') }
+      ]);
       } else {
         Alert.alert('Erro', 'E-mail ou senha incorretos');
       }
@@ -52,10 +52,12 @@ export default function Users() {
   };
 
   return (
-    <ScrollView style={styles.container}>
+    <View style={styles.container}>
 
-      <Text style={styles.titulo}> FIAPCoin</Text>
+      <Text style={styles.title}>FIAP Invest+</Text>
+      <Text style={styles.subtitle}>Faça login para continuar </Text>
       
+      <View style={styles.formContainer}>
       <TextInput
         style={styles.input}
         placeholder="E-mail"
@@ -87,60 +89,65 @@ export default function Users() {
         style={styles.botaoSecundario} 
         onPress={() => navigation.navigate('AddUsers')}
       >
-        <Text style={styles.textoBotaoSecundario}>Criar nova conta</Text>
+        <Text style={styles.textoBotaoSecundario}>Criar conta</Text>
       </TouchableOpacity>
-
-    </ScrollView>
+    </View>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+   container: {
     flex: 1,
-    backgroundColor: '#B0C4DE',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#1a1a2e',
     padding: 20,
   },
-  titulo: {
-    fontSize: 24,
+  title: {
+    fontSize: 32,
     fontWeight: 'bold',
-    color: '#0d47a1',
-    textAlign: 'center',
+    color: '#fff',
+    marginBottom: 10,
+  },
+  subtitle: {
+    fontSize: 16,
+    color: 'rgba(255, 255, 255, 0.7)',
     marginBottom: 30,
-    marginTop: 20,
+  },
+  formContainer: {
+    width: '100%',
+    maxWidth: 400,
   },
   input: {
-    backgroundColor: 'white',
-    borderRadius: 8,
+    backgroundColor: '#fff',
+    borderRadius: 12,
     padding: 15,
     marginBottom: 15,
     fontSize: 16,
-    borderWidth: 1,
-    borderColor: '#ccc',
   },
   input2: {
     backgroundColor: 'white',
-    borderRadius: 8,
+    borderRadius: 12,
     padding: 15,
     marginBottom: 2,
     fontSize: 16,
-    borderWidth: 1,
-    borderColor: '#ccc',
   },
   botao: {
-    backgroundColor: '#0d47a1',
-    borderRadius: 8,
+    backgroundColor: '#3498db',
+    borderRadius: 12,
     padding: 15,
     alignItems: 'center',
     marginTop: 20,
   },
   botaoSecundario: {
     backgroundColor: 'transparent',
-    borderRadius: 8,
+    borderRadius: 12,
     padding: 15,
     alignItems: 'center',
     marginTop: 10,
     borderWidth: 1,
-    borderColor: '#0d47a1',
+    borderColor: '#3498db',
   },
   textoBotao: {
     color: 'white',
@@ -148,12 +155,12 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   textoBotaoSecundario: {
-    color: '#0d47a1',
+    color: '#3498db',
     fontSize: 16,
     fontWeight: 'bold',
   },
   textoEsqueci:{
-    color: '#0d47a1',
+    color: '#3498db',
     fontSize: 12,
     marginLeft: 2,
   },
