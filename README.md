@@ -35,10 +35,10 @@ npx expo start
 
 ### 👥 Integrantes
 
-| Nome               | RM       |
-|--------------------|----------|
-| David G. B. Denunci| RM98603  |
-| Lucas P. de Toledo | RM97913  |
-| Fernando Popoli    | RM  |
-| Augusto Milreu     | RM  |
-| Matheus Zanardi    | RM  |
+| Nome               | RM        |
+|--------------------|-----------|
+| David Denunci      | RM 98603  |
+| Lucas de Toledo    | RM 97913  |
+| Fernando Popolili  | RM 99919  |
+| Augusto Milreu     | RM 98245  |
+| Matheus Zanardi    | RM 98832  |
