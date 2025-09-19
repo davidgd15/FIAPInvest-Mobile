@@ -1,7 +1,7 @@
 # 📋 README - Aplicativo mobile Fiap Invest+
 
 ## 🎯 Visão Geral
-Aplicativo Fiap Invest+, uma plataforma completa de controle financeiro, sistemas de gestão e dicas de investimentos.
+Aplicativo FiapInvest+, uma plataforma completa de controle financeiro, sistemas de gestão e dicas de investimentos.
 
 <br>
 
