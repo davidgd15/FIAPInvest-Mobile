@@ -30,9 +30,6 @@ Fiap Invest+ é um aplicativo mobile que oferece:
 
 ### Instalar dependências
 ```bash
-cd FIAPCoin-Mobile
-```
-```bash
 npm install
 ```
 ```bash
