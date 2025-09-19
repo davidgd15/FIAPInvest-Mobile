@@ -7,9 +7,8 @@ Aplicativo Fiap Invest+, uma plataforma completa de controle financeiro, sistema
 
 ## ✨ Contexto do Aplicativo
 Fiap Invest+ é um aplicativo mobile que oferece:
-
+- 🦰 Login com AsyncStorage
 - 📊 Controle Financeiro Pessoal
-
 - 💰 Sistemas de Gestão de Investimentos
 - 📈 Dicas e Recomendações Personalizadas
 - 🔄 Acompanhamento de Carteira em Tempo Real
@@ -18,7 +17,12 @@ Fiap Invest+ é um aplicativo mobile que oferece:
 <br>
 
 ## 🛠️ Tecnologias Utilizadas
-- Linguagem Typescript
+- React Native 
+- TypeScript
+- React Navigation
+  - Stack Navigator
+  - Tab Navigator
+- React Native Async Storage
 
 <br>
 
@@ -26,7 +30,19 @@ Fiap Invest+ é um aplicativo mobile que oferece:
 
 ### Instalar dependências
 ```bash
-npm install @react-navigation/native @react-navigation/stack react-native-screens react-native-safe-area-context
+cd FIAPCoin-Mobile
+```
+```bash
+npm install
+```
+```bash
+npm install @react-navigation/native @react-navigation/stack @react-navigation/bottom-tabs
+npm install @react-native-async-storage/async-storage
+npm install react-native-vector-icons
+npm install @types/react-native-vector-icons
+```
+```bash
+npx expo install
 ```
 ```bash
 npx expo start
