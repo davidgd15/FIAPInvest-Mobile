@@ -22,7 +22,7 @@ export default function Users() {
 
   const handleEntrar = async () => {
     if (!email.trim() || !senha.trim() ) {
-      Alert.alert('Erro', 'Por favor, preencha todos os campos');
+      Alert.alert('Ops!', 'Por favor, preencha todos os campos');
       return;
     }
 
@@ -30,7 +30,7 @@ export default function Users() {
        const usuariosSalvos = await AsyncStorage.getItem(STORAGE_KEY);
 
       if (!usuariosSalvos) {
-        Alert.alert('Erro', 'Nenhum usuário cadastrado');
+        Alert.alert('Ops!', 'Nenhum usuário cadastrado');
         return;
       }
 
@@ -42,12 +42,12 @@ export default function Users() {
         { text: 'OK', onPress: () => navigation.navigate('MainTabs') }
       ]);
       } else {
-        Alert.alert('Erro', 'E-mail ou senha incorretos');
+        Alert.alert('Ops!', 'E-mail ou senha incorretos');
       }
 
        } catch (error) {
-      console.error('Erro ao fazer login:', error);
-      Alert.alert('Erro', 'Não foi possível fazer login');
+      console.error('Ops! ao fazer login:', error);
+      Alert.alert('Ops!', 'Não foi possível fazer login');
     }
   };
 

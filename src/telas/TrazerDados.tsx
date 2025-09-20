@@ -46,7 +46,7 @@ export default function TrazerDados() {
         }
       }
     } catch (error) {
-      console.error('Erro ao carregar usuário:', error);
+      console.error('Ops! ao carregar usuário:', error);
     }
   };
 
@@ -54,12 +54,12 @@ export default function TrazerDados() {
     if (!usuario) return;
     
     if (senha !== confirmSenha) {
-      Alert.alert('Erro', 'As senhas não coincidem');
+      Alert.alert('Ops!', 'As senhas não coincidem');
       return;
     }
 
     if (senha.length < 6) {
-      Alert.alert('Erro', 'A senha deve ter pelo menos 6 caracteres');
+      Alert.alert('Ops!', 'A senha deve ter pelo menos 6 caracteres');
       return;
     }
 
@@ -77,8 +77,8 @@ export default function TrazerDados() {
         navigation.navigate('Users');
       }
     } catch (error) {
-      console.error('Erro ao atualizar senha:', error);
-      Alert.alert('Erro', 'Não foi possível alterar a senha');
+      console.error('Ops! ao atualizar senha:', error);
+      Alert.alert('Ops!', 'Não foi possível alterar a senha');
     }
   };
 

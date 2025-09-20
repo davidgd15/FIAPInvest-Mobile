@@ -23,7 +23,7 @@ export default function EsqueciSenha() {
 
   const handleVerificar = async () => {
     if (!email.trim()) {
-      Alert.alert('Erro', 'Por favor, preencha todos os campos');
+      Alert.alert('Ops!', 'Por favor, preencha todos os campos');
       return;
     }
 
@@ -39,16 +39,16 @@ export default function EsqueciSenha() {
             email: email
           });
         } else {
-          Alert.alert('Erro', 'E-mail não encontrado');
+          Alert.alert('Ops!', 'E-mail não encontrado');
           navigation.navigate('AddUsers');
         }
       } else {
-        Alert.alert('Erro', 'Nenhum usuário cadastrado');
+        Alert.alert('Ops!', 'Nenhum usuário cadastrado');
         navigation.navigate('AddUsers');
       }
     } catch (error) {
-      console.error('Erro ao trazer os dados', error);
-      Alert.alert('Erro', 'Não foi possível verificar o usuário');
+      console.error('Ops! ao trazer os dados', error);
+      Alert.alert('Ops!', 'Não foi possível verificar o usuário');
     }
   };
 

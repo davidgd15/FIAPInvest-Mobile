@@ -16,7 +16,7 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
       await AsyncStorage.removeItem('isLoggedIn');
       navigation.navigate('Users');
     } catch (error) {
-      console.error('Erro ao fazer logout:', error);
+      console.error('Ops! ao fazer logout:', error);
     }
   };
 

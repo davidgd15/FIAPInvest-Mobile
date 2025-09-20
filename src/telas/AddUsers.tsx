@@ -29,22 +29,22 @@ export default function AddUsers() {
 
   const handleSalvar = async () => {
     if (!nome.trim() || !sobrenome.trim() || !email.trim() || !senha.trim() || !confirmSenha.trim() ) {
-      Alert.alert('Erro', 'Por favor, preencha todos os campos');
+      Alert.alert('Ops!', 'Por favor, preencha todos os campos');
       return;
     }
 
     if (!email.includes('@') || !email.endsWith('.com')) {
-        Alert.alert('Erro', 'Digite um e-mail válido (deve conter "@" e terminar com ".com")');
+        Alert.alert('Ops!', 'Digite um e-mail válido (deve conter "@" e terminar com ".com")');
         return;
     }
 
     if (senha.length < 6) {
-          Alert.alert('Erro', 'A senha deve ter pelo menos 6 caracteres');
+          Alert.alert('Ops!', 'A senha deve ter pelo menos 6 caracteres');
           return;
         }
 
     if(senha != confirmSenha){
-      Alert.alert('Erro', 'As senhas não coincidem!');
+      Alert.alert('Ops!', 'As senhas não coincidem!');
       return;
     }
 
@@ -57,7 +57,7 @@ export default function AddUsers() {
         const emailExistente = usuarios.find(u => u.email === email);
         
         if (emailExistente) {
-          Alert.alert('Erro', 'Este e-mail já está cadastrado');
+          Alert.alert('Ops!', 'Este e-mail já está cadastrado');
           return;
         }
       }
@@ -79,8 +79,8 @@ export default function AddUsers() {
       ]);
 
     } catch (error) {
-      console.error('Erro ao salvar usuário:', error);
-      Alert.alert('Erro', 'Não foi possível salvar o usuário');
+      console.error('Ops! ao salvar usuário:', error);
+      Alert.alert('Ops!', 'Não foi possível salvar o usuário');
     }
   };
 
